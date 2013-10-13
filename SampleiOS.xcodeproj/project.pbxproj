@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D8416AC180B63FF00D28DBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8416AB180B63FF00D28DBE /* UIKit.framework */; };
+		3D8416AE180B63FF00D28DBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8416AD180B63FF00D28DBE /* Foundation.framework */; };
+		3D8416B0180B63FF00D28DBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8416AF180B63FF00D28DBE /* CoreGraphics.framework */; };
+		3D8416B6180B63FF00D28DBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D8416B4180B63FF00D28DBE /* InfoPlist.strings */; };
+		3D8416B8180B63FF00D28DBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8416B7180B63FF00D28DBE /* main.m */; };
+		3D8416BC180B63FF00D28DBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8416BB180B63FF00D28DBE /* AppDelegate.m */; };
+		3D8416BF180B63FF00D28DBE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8416BD180B63FF00D28DBE /* MainStoryboard_iPhone.storyboard */; };
+		3D8416C2180B63FF00D28DBE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8416C0180B63FF00D28DBE /* MainStoryboard_iPad.storyboard */; };
+		3D8416C5180B63FF00D28DBE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8416C4180B63FF00D28DBE /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D8416A7180B63FF00D28DBE /* SampleiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D8416AB180B63FF00D28DBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3D8416AD180B63FF00D28DBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3D8416AF180B63FF00D28DBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3D8416B3180B63FF00D28DBE /* SampleiOS-Info.plist */ = {isa = PBXFileReference; path = "SampleiOS-Info.plist"; sourceTree = "<group>"; };
+		3D8416B5180B63FF00D28DBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3D8416B7180B63FF00D28DBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3D8416B9180B63FF00D28DBE /* SampleiOS-Prefix.pch */ = {isa = PBXFileReference; path = "SampleiOS-Prefix.pch"; sourceTree = "<group>"; };
+		3D8416BA180B63FF00D28DBE /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3D8416BB180B63FF00D28DBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3D8416BE180B63FF00D28DBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		3D8416C1180B63FF00D28DBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		3D8416C3180B63FF00D28DBE /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		3D8416C4180B63FF00D28DBE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D8416A4180B63FF00D28DBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D8416AC180B63FF00D28DBE /* UIKit.framework in Frameworks */,
+				3D8416AE180B63FF00D28DBE /* Foundation.framework in Frameworks */,
+				3D8416B0180B63FF00D28DBE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D84169C180B63FF00D28DBE = {
+			isa = PBXGroup;
+			children = (
+				3D8416B1180B63FF00D28DBE /* SampleiOS */,
+				3D8416AA180B63FF00D28DBE /* Frameworks */,
+				3D8416A8180B63FF00D28DBE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D8416A8180B63FF00D28DBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D8416A7180B63FF00D28DBE /* SampleiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D8416AA180B63FF00D28DBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D8416AB180B63FF00D28DBE /* UIKit.framework */,
+				3D8416AD180B63FF00D28DBE /* Foundation.framework */,
+				3D8416AF180B63FF00D28DBE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D8416B1180B63FF00D28DBE /* SampleiOS */ = {
+			isa = PBXGroup;
+			children = (
+				3D8416BA180B63FF00D28DBE /* AppDelegate.h */,
+				3D8416BB180B63FF00D28DBE /* AppDelegate.m */,
+				3D8416BD180B63FF00D28DBE /* MainStoryboard_iPhone.storyboard */,
+				3D8416C0180B63FF00D28DBE /* MainStoryboard_iPad.storyboard */,
+				3D8416C3180B63FF00D28DBE /* ViewController.h */,
+				3D8416C4180B63FF00D28DBE /* ViewController.m */,
+				3D8416B2180B63FF00D28DBE /* Supporting Files */,
+			);
+			path = SampleiOS;
+			sourceTree = "<group>";
+		};
+		3D8416B2180B63FF00D28DBE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D8416B3180B63FF00D28DBE /* SampleiOS-Info.plist */,
+				3D8416B4180B63FF00D28DBE /* InfoPlist.strings */,
+				3D8416B7180B63FF00D28DBE /* main.m */,
+				3D8416B9180B63FF00D28DBE /* SampleiOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D8416A6180B63FF00D28DBE /* SampleiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D8416C8180B63FF00D28DBE /* Build configuration list for PBXNativeTarget "SampleiOS" */;
+			buildPhases = (
+				3D8416A3180B63FF00D28DBE /* Sources */,
+				3D8416A4180B63FF00D28DBE /* Frameworks */,
+				3D8416A5180B63FF00D28DBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleiOS;
+			productName = SampleiOS;
+			productReference = 3D8416A7180B63FF00D28DBE /* SampleiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D84169E180B63FF00D28DBE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 3D8416A1180B63FF00D28DBE /* Build configuration list for PBXProject "SampleiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3D84169C180B63FF00D28DBE;
+			productRefGroup = 3D8416A8180B63FF00D28DBE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D8416A6180B63FF00D28DBE /* SampleiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D8416A5180B63FF00D28DBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D8416B6180B63FF00D28DBE /* InfoPlist.strings in Resources */,
+				3D8416BF180B63FF00D28DBE /* MainStoryboard_iPhone.storyboard in Resources */,
+				3D8416C2180B63FF00D28DBE /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D8416A3180B63FF00D28DBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D8416B8180B63FF00D28DBE /* main.m in Sources */,
+				3D8416BC180B63FF00D28DBE /* AppDelegate.m in Sources */,
+				3D8416C5180B63FF00D28DBE /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3D8416B4180B63FF00D28DBE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D8416B5180B63FF00D28DBE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3D8416BD180B63FF00D28DBE /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D8416BE180B63FF00D28DBE /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		3D8416C0180B63FF00D28DBE /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D8416C1180B63FF00D28DBE /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D8416C6180B63FF00D28DBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D8416C7180B63FF00D28DBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D8416C9180B63FF00D28DBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleiOS/SampleiOS-Prefix.pch";
+				INFOPLIST_FILE = "SampleiOS/SampleiOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3D8416CA180B63FF00D28DBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleiOS/SampleiOS-Prefix.pch";
+				INFOPLIST_FILE = "SampleiOS/SampleiOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D8416A1180B63FF00D28DBE /* Build configuration list for PBXProject "SampleiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D8416C6180B63FF00D28DBE /* Debug */,
+				3D8416C7180B63FF00D28DBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D8416C8180B63FF00D28DBE /* Build configuration list for PBXNativeTarget "SampleiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D8416C9180B63FF00D28DBE /* Debug */,
+				3D8416CA180B63FF00D28DBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D84169E180B63FF00D28DBE /* Project object */;
+}
