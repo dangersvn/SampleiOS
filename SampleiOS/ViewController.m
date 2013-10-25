@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
-
+#import "ViewController.h"
 @implementation ViewController
+@synthesize tableViewListControls;
+
+-(ViewController*) init{
+    self.title=@"Standard Controls iOS 5.0";
+    return self;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,8 +26,32 @@
 
 - (void)viewDidLoad
 {
+    self.tableViewListControls.dataSource = self;
+    self.tableViewListControls.delegate = self;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"any-cell"];
+    if (!cell){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"any-cell"];
+    }
+    if(tableView == tableViewListControls);
+        cell.text = @"This is label of cell";
+    return cell;
 }
 
 - (void)viewDidUnload

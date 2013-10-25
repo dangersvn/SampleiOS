@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "1.0">
+   <FileBreakpoints>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "ViewManageControls.m"
+         timestampString = "403379470.195565"
+         startingColumnNumber = "2147483647"
+         endingColumnNumber = "2147483647"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-tableView:numberOfRowsInSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "ViewManageControls.m"
+         timestampString = "403379472.259219"
+         startingColumnNumber = "2147483647"
+         endingColumnNumber = "2147483647"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
+         landmarkName = "-numberOfSectionsInTableView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "ViewManageControls.m"
+         timestampString = "403379474.113063"
+         startingColumnNumber = "2147483647"
+         endingColumnNumber = "2147483647"
+         startingLineNumber = "105"
+         endingLineNumber = "105"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "SampleiOS/ViewStandardControl.m"
+         timestampString = "403382290.554305"
+         startingColumnNumber = "2147483647"
+         endingColumnNumber = "2147483647"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "-numberOfSectionsInTableView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "SampleiOS/ViewStandardControl.m"
+         timestampString = "403382293.84243"
+         startingColumnNumber = "2147483647"
+         endingColumnNumber = "2147483647"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
+         landmarkName = "-tableView:numberOfRowsInSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "SampleiOS/ViewStandardControl.m"
+         timestampString = "403382307.81828"
+         startingColumnNumber = "2147483647"
+         endingColumnNumber = "2147483647"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+   </FileBreakpoints>
+</Bucket>
