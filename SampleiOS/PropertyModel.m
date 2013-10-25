@@ -11,6 +11,7 @@
 #import "PropertyTemplate.h"
 #include "EnumUtils.h"
 #import "ListControls.h"
+#import "Utils.h"
 @implementation PropertyModel
 @synthesize oControl,arrProperties,propertyTemplate;
 
@@ -81,11 +82,11 @@
              propertyTemplate.propertyValue = propValue;
              } */
             id propValue = [oControl valueForKey:propertyName];
-            //get hierachical properties
             propertyTemplate.propertyValue = propValue;
-
+            //get hierachical properties
+            Utils *oUtil = [[Utils alloc]init];
             
-            //NSLog(@"Value: %@", propValue);
+            propertyTemplate.dictDetailsProperty = [oUtil convertIDtoNSDictionary:propValue];
             [arrProperties addObject:propertyTemplate];
         }
     }
@@ -111,7 +112,6 @@
 const char* getPropertyType(objc_property_t property)
 {
     const char *attributes = property_getAttributes(property);
-    NSLog(@"%s", attributes);
     const char *propName = property_getName(property);
     
     //NSLog(@"attribute: %s Name: %s",attributes,propName);

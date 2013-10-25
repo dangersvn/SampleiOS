@@ -14,6 +14,9 @@
     NSMutableString *sResult = [NSMutableString stringWithCapacity:0];
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList([oID class], &outCount);
+    if (outCount > 0) {
+        NSLog(@"have details");
+    }
     for(i = 0; i < outCount; i++)
     {
         objc_property_t property = properties[i];
@@ -82,10 +85,20 @@
     return sResult;
 }
 
-- (NSString *) doConvert:(id)id_converted
+- (NSDictionary *) convertIDtoNSDictionary:(id)oID
 {
-    NSMutableString *sOut = [NSMutableString stringWithCapacity:0];
+    NSMutableDictionary *propertyDetails = [NSMutableDictionary dictionaryWithCapacity:0];
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([oID class], &outCount);
+    for(i = 0; i < outCount; i++)
+    {
+        objc_property_t property = properties[i];
+        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:[NSString defaultCStringEncoding]];
+        id propertyValue = [oID valueForKey:propertyName];
+        [propertyDetails setValue:propertyValue forKey:propertyName];
+    }
     
+    return propertyDetails;    
 }
 
 @end

@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_PropertyName;
 @property (weak, nonatomic) IBOutlet UITextField *txt_PropertyValue;
 @property (weak, nonatomic) IBOutlet UIButton *btn_Update;
+@property UIView *temp;
 
 @end

@@ -29,11 +29,11 @@
 
 -(void) CreateControl
 {
-    UITextField *text = [[UITextField alloc] init];
-    //UIButton *btnTest = [[UIButton alloc] init];
-    UIButton *btnTest = [UIButton buttonWithType:UIButtonTypeRoundedRect]
+   // UITextField *text = [[UITextField alloc] init];
+    UIButton *btnTest = [[UIButton alloc] init];
+//    UIButton *btnTest = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
-    [btnTest setFont:[[UIFont alloc]init]];
+    [btnTest setFont:[UIFont fontWithName:@"American Typewriter" size:18]];
     [btnTest setBackgroundColor:[UIColor redColor]];
     [btnTest setTitle:@"Button Test" forState:UIControlStateNormal];
     btnTest.frame = CGRectMake(0, 0, 100, 50);
@@ -42,6 +42,11 @@
         
     [self.view addSubview:btnTest];    
     self.oControl = btnTest;
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([oControl class], &outCount);
+    for (int i =0; i < outCount; i++) {
+        objc_property_t property = properties[i];
+    }
 }
 
 - (void)viewDidLoad
@@ -81,7 +86,7 @@
 
 -(void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    NSLog(@"Tab selected");
+   // NSLog(@"Tab selected");
     [tableview_ListProperties setHidden:FALSE];
     
     if([[item title] isEqualToString:@"Properties"])
@@ -90,8 +95,8 @@
         [tableview_ListProperties setHidden:TRUE];
 }
 
-//---------------Populating TableView Properties-------------------
 
+//---------------Populating TableView Properties-------------------
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -100,15 +105,17 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [arrProperty count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (arrProperty == nil) {
-        NSLog(@"arrProperty is NULL");
+    int numOfDetailsProperty = [((PropertyTemplate *) [arrProperty objectAtIndex:section]).dictDetailsProperty count];
+    if (numOfDetailsProperty > 0) {
+        return numOfDetailsProperty;
     }
-    return [arrProperty count];
+    else return  1;
+    
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,26 +129,42 @@
         cell = [nib objectAtIndex:0];
     }
     int indexRow = indexPath.row;
+    int indexSection = indexPath.section;
     
-    PropertyTemplate *oTemplate = [arrProperty objectAtIndex:indexRow];
+    PropertyTemplate *oTemplate = [arrProperty objectAtIndex:indexSection];
     NSString *sProName = oTemplate.propertyName;
     NSString *sProValue = @"";
-    if (![oTemplate.propertyType isEqualToString:@"NSString"])
+    
+    
+    if ([oTemplate.dictDetailsProperty count] > 0)
     {
-        Utils *oUtil = [[Utils alloc]init];
-        sProValue = [oUtil convertIDtoNSString:oTemplate.propertyValue];
+        //NSLog(@"DictDetailsProperty Count > 0");
+        NSLog(@"Number of Row in Section-%d is: %d",indexSection,indexRow);
+        NSArray *keys = [oTemplate.dictDetailsProperty allKeys];
+        id aKey = [keys objectAtIndex:indexRow];
+        id anObject = [oTemplate.dictDetailsProperty objectForKey:aKey];        
+        
+        [cell.lbl_PropertyName setText:[aKey isKindOfClass:[NSString class]] ? (NSString* )aKey : @"Pro Name is not NSString"];
+        [cell.txt_PropertyValue setText:[anObject isKindOfClass:[NSString class]] ? (NSString* )anObject : @"ProValue not NSString"];
     }
-    else sProValue = oTemplate.propertyValue;
-    
-    NSLog(@"SProValue: %@", sProValue);
-    cell.lbl_PropertyName.text = sProName;
-    [cell.lbl_PropertyName setTextColor:[UIColor lightTextColor]];
-    cell.txt_PropertyValue.text = sProValue;
-    
-    if ([oTemplate.isEdited intValue] == 0)
-        [cell.btn_Update setHidden:TRUE];
+    else
+    {
+        cell.lbl_PropertyName.text = sProName;
+        [cell.lbl_PropertyName setTextColor:[UIColor lightTextColor]];
+        
+        if (![oTemplate.propertyValue isKindOfClass:[NSString class]]) {
+            cell.txt_PropertyValue.text = @"It's not NSString";
+        }
+        else
+        {
+            //NSLog(@"%@", oTemplate.propertyValue);
+            cell.txt_PropertyValue.text = (NSString *)oTemplate.propertyValue;
+        }
+        if ([oTemplate.isEdited intValue] == 0)
+            [cell.btn_Update setHidden:TRUE];
+        
+    }    
     return cell;
-
 }
 
 

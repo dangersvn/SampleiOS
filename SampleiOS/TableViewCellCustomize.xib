@@ -105,11 +105,11 @@
 								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
-									<double key="pointSize">3</double>
+									<double key="pointSize">13</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica</string>
-									<double key="NSSize">3</double>
+									<double key="NSSize">13</double>
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
@@ -146,7 +146,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 58}</string>
+						<string key="NSFrameSize">{320, 53}</string>
 						<reference key="NSSuperview" ref="853277652"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="413193250"/>
@@ -162,7 +162,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 59}</string>
+				<string key="NSFrameSize">{320, 54}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="197809054"/>
@@ -170,7 +170,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="197809054"/>
 				<string key="IBUIReuseIdentifier">TableViewCellCustomize</string>
-				<real value="59" key="IBUIRowHeight"/>
+				<real value="54" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUIButton" id="367937481">
 				<nil key="NSNextResponder"/>
@@ -244,7 +244,7 @@
 				<reference key="IBUIFont" ref="477017122"/>
 			</object>
 			<object class="IBUITableViewCell" id="279194512">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="571597951">
@@ -289,7 +289,6 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 91}</string>
-				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="571597951"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
