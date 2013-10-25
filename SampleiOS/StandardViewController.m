@@ -30,7 +30,9 @@
 -(void) CreateControl
 {
     UITextField *text = [[UITextField alloc] init];
-    UIButton *btnTest = [[UIButton alloc] init];
+    //UIButton *btnTest = [[UIButton alloc] init];
+    UIButton *btnTest = [UIButton buttonWithType:UIButtonTypeRoundedRect]
+    
     [btnTest setFont:[[UIFont alloc]init]];
     [btnTest setBackgroundColor:[UIColor redColor]];
     [btnTest setTitle:@"Button Test" forState:UIControlStateNormal];

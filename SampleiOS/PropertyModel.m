@@ -83,10 +83,7 @@
             id propValue = [oControl valueForKey:propertyName];
             //get hierachical properties
             propertyTemplate.propertyValue = propValue;
-            if (propValue iskin) {
-                <#statements#>
-            }
-            
+
             
             //NSLog(@"Value: %@", propValue);
             [arrProperties addObject:propertyTemplate];
