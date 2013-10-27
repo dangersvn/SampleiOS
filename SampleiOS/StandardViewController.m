@@ -17,6 +17,7 @@
 
 @implementation StandardViewController
 @synthesize lblComment,oProperty,arrProperty,oControl,controlName,selectedPropName,selectedPropValue,tableview_ListProperties, tabbar;
+CGPoint *pointTableView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,12 +29,7 @@
 }
 
 -(void) CreateControl
-{
-   // UITextField *text = [[UITextField alloc] init];
-    UIButton *btnTest = [[UIButton alloc] init];
-//    UIButton *btnTest = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
-    [btnTest setFont:[UIFont fontWithName:@"American Typewriter" size:18]];
+{    UIButton *btnTest = [[UIButton alloc] init];
     [btnTest setBackgroundColor:[UIColor redColor]];
     [btnTest setTitle:@"Button Test" forState:UIControlStateNormal];
     btnTest.frame = CGRectMake(0, 0, 100, 50);
@@ -42,11 +38,7 @@
         
     [self.view addSubview:btnTest];    
     self.oControl = btnTest;
-    unsigned int outCount, i;
-    objc_property_t *properties = class_copyPropertyList([oControl class], &outCount);
-    for (int i =0; i < outCount; i++) {
-        objc_property_t property = properties[i];
-    }
+
 }
 
 - (void)viewDidLoad
@@ -57,6 +49,7 @@
     [tabbar setDelegate:self];
     [tableview_ListProperties setDelegate:self];
     [tableview_ListProperties setDataSource:self];
+    //self.tableview_ListProperties.center = self.view.center;
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -70,18 +63,16 @@
     [lblComment setText:comment];
 }
 
-- (IBAction) tapButtonUpdate:(id)sender
-{
-    selectedPropName = @"isEnable"; //Example property name
-    selectedPropValue = @"1";
-    
-    
-}
-
 - (IBAction) tapButton:(id)sender
 {
     [lblComment setText:@"Button Clicked!"];
     
+}
+
+- (IBAction) tapButtonUpdate:(id)sender
+{
+    
+    [lblComment setText:@"Button update Clicked!"];
 }
 
 -(void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -123,6 +114,7 @@
     static NSString *simpleTableIdentifier = @"TableViewCellCustomize";
     
     TableViewCellCustomize *cell = (TableViewCellCustomize *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    [cell.btn_Update addTarget:self action:@selector(tapButtonUpdate:) forControlEvents:UIControlEventTouchUpInside];
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TableViewCellCustomize" owner:self options:nil];
@@ -133,27 +125,30 @@
     
     PropertyTemplate *oTemplate = [arrProperty objectAtIndex:indexSection];
     NSString *sProName = oTemplate.propertyName;
-    NSString *sProValue = @"";
     
     
     if ([oTemplate.dictDetailsProperty count] > 0)
     {
-        //NSLog(@"DictDetailsProperty Count > 0");
-        NSLog(@"Number of Row in Section-%d is: %d",indexSection,indexRow);
         NSArray *keys = [oTemplate.dictDetailsProperty allKeys];
         id aKey = [keys objectAtIndex:indexRow];
         id anObject = [oTemplate.dictDetailsProperty objectForKey:aKey];        
         
-        [cell.lbl_PropertyName setText:[aKey isKindOfClass:[NSString class]] ? (NSString* )aKey : @"Pro Name is not NSString"];
-        [cell.txt_PropertyValue setText:[anObject isKindOfClass:[NSString class]] ? (NSString* )anObject : @"ProValue not NSString"];
+        [cell.lbl_PropertyName setText:(NSString* )aKey];
+        [cell.txt_PropertyValue setText:[anObject isKindOfClass:[NSString class]] ? (NSString* )anObject : [aKey description]];
+        if ([oTemplate.isEdited intValue] == 0)
+        {
+            [cell.txt_PropertyValue setUserInteractionEnabled:FALSE];
+            [cell.btn_Update setHidden:TRUE];
+            [cell.btn_Update addTarget:self action:@selector(tapButtonUpdate:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
     else
     {
-        cell.lbl_PropertyName.text = sProName;
         [cell.lbl_PropertyName setTextColor:[UIColor lightTextColor]];
         
         if (![oTemplate.propertyValue isKindOfClass:[NSString class]]) {
-            cell.txt_PropertyValue.text = @"It's not NSString";
+            NSString *des = [oTemplate.propertyValue description];
+            cell.txt_PropertyValue.text = des;
         }
         else
         {
@@ -161,13 +156,31 @@
             cell.txt_PropertyValue.text = (NSString *)oTemplate.propertyValue;
         }
         if ([oTemplate.isEdited intValue] == 0)
+        {
+            [cell.txt_PropertyValue setUserInteractionEnabled:FALSE];
             [cell.btn_Update setHidden:TRUE];
+        }
         
-    }    
+    }
+    
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [((PropertyTemplate *) [arrProperty objectAtIndex:section]) propertyName];
+}
 
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+    NSLog(@"Hide keyboard");
+}
+
+- (void)keyboardDidShow:(NSNotification *)note
+{
+    self.tableview_ListProperties.center = self.view.center;
+}
 
 - (void)didReceiveMemoryWarning
 {

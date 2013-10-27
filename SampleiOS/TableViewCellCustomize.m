@@ -7,6 +7,7 @@
 //
 
 #import "TableViewCellCustomize.h"
+#import "PropertyModel.h"
 
 @implementation TableViewCellCustomize
 @synthesize btn_Update=_btn_Update;

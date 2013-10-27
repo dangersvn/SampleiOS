@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PropertyModel.h"
-@interface StandardViewController : UIViewController<UITabBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface StandardViewController : UIViewController<UITabBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
    // UIButton * btnTest;
     //PropertyModel *oProperty;
@@ -30,7 +30,5 @@
 - (IBAction) tapLabelButton:(id)sender;
 
 - (IBAction) tapButtonUpdate:(id)sender;
-
-
 
 @end

@@ -11,6 +11,11 @@
 @implementation Utils
 - (NSString *) convertIDtoNSString:(id)oID
 {
+    int a = 4;
+    
+    //oID = a;
+    
+    
     NSMutableString *sResult = [NSMutableString stringWithCapacity:0];
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList([oID class], &outCount);
@@ -87,6 +92,7 @@
 
 - (NSDictionary *) convertIDtoNSDictionary:(id)oID
 {
+    NSLog(@"Properties Value: %@ ", oID);
     NSMutableDictionary *propertyDetails = [NSMutableDictionary dictionaryWithCapacity:0];
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList([oID class], &outCount);

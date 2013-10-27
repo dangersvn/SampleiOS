@@ -87,6 +87,7 @@
             Utils *oUtil = [[Utils alloc]init];
             
             propertyTemplate.dictDetailsProperty = [oUtil convertIDtoNSDictionary:propValue];
+            //NSString *arrPros = [oUtil convertIDtoNSString:propValue];
             [arrProperties addObject:propertyTemplate];
         }
     }
