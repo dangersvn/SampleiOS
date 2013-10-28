@@ -18,5 +18,5 @@
 - (id)initWithControl:(UIControl *) paramControl;
 - (NSMutableArray *) getStandardProperties;
 - (NSMutableArray *) getExtendProperties;
-- (BOOL) updateProperty:(NSString *)propertyName withValue:(id)propertyValue;
+- (BOOL) doUpdateProperty:(PropertyTemplate *)oTemplateProperty withValue:(NSString *)sProValue;
 @end

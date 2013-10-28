@@ -57,26 +57,26 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SampleiOS/PropertyModel.m"
-         timestampString = "404622380.94067"
+         filePath = "SampleiOS/StandardViewController.m"
+         timestampString = "404646391.866524"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
-         landmarkName = "-getStandardProperties"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
+         landmarkName = "-tapButtonUpdate:withEvent:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SampleiOS/StandardViewController.m"
-         timestampString = "404625441.37884"
+         filePath = "SampleiOS/PropertyModel.m"
+         timestampString = "404644908.411939"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
+         landmarkName = "-getStandardProperties"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

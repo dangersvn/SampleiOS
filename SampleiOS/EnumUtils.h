@@ -18,13 +18,11 @@ typedef enum
     DOUBLE,
     LONG,
     UNSIGNEDINT,
-    UILABEL,
-    NSLINEBREAKMODE,
     
-} enumPropertiesType;
+} enumEditedPropertiesType;
 
 @interface EnumUtils : NSObject
--(enumPropertiesType) propertyTypeStringToEnum:(NSString*)strVal;
+-(enumEditedPropertiesType) propertyTypeStringToEnum:(NSString*)strVal;
 
 @end
 

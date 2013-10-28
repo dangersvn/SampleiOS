@@ -9,6 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface Utils : NSObject
-- (NSString *) convertIDtoNSString:(id)oID;
 - (NSDictionary *) convertIDtoNSDictionary:(id)oID;
 @end

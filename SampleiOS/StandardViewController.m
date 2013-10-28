@@ -30,15 +30,17 @@ CGPoint *pointTableView;
 
 -(void) CreateControl
 {    UIButton *btnTest = [[UIButton alloc] init];
+    UIFont *oFont = [UIFont fontWithName:@"Helvetica" size:21];
+    [btnTest setFont:oFont];
+    //[btnTest setLineBreakMode:NSLineBreakByTruncatingHead];
     [btnTest setBackgroundColor:[UIColor redColor]];
     [btnTest setTitle:@"Button Test" forState:UIControlStateNormal];
     btnTest.frame = CGRectMake(0, 0, 100, 50);
     [btnTest addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
     [btnTest setTintColor:[UIColor blueColor]];
-        
+    btnTest.showsTouchWhenHighlighted = YES;
     [self.view addSubview:btnTest];    
     self.oControl = btnTest;
-
 }
 
 - (void)viewDidLoad
@@ -49,8 +51,6 @@ CGPoint *pointTableView;
     [tabbar setDelegate:self];
     [tableview_ListProperties setDelegate:self];
     [tableview_ListProperties setDataSource:self];
-    NSArray *arrActions = [self.oControl actionsForTarget:self forControlEvent:UIControlEventTouchUpInside];
-
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -186,11 +186,21 @@ CGPoint *pointTableView;
     CGPoint location = [touch locationInView: self.tableview_ListProperties];
     NSIndexPath * indexPath = [self.tableview_ListProperties indexPathForRowAtPoint: location];
     TableViewCellCustomize *currentCell = [self.tableview_ListProperties cellForRowAtIndexPath:indexPath];
-    NSString *sVar = currentCell.txt_PropertyValue.text;
     
-    //oProperty updateProperty:currentCell.lbl_PropertyName.text withValue:<#(id)#>
+    PropertyTemplate *oTemplate = [arrProperty objectAtIndex:indexPath.section];
+    NSString *sProVar = currentCell.txt_PropertyValue.text;
+    //[oProperty doUpdateProperty:oTemplate.propertyValue withValue:sVar];
+    
+    //oProperty updateProperty:currentCell.lbl_PropertyName.text withValue:
+    
+    BOOL isUpdated = [oProperty doUpdateProperty:oTemplate withValue:sProVar];
+    if (!isUpdated) {
+        NSLog(@"Update property failed!");
+    }
     
 }
+
+
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

@@ -82,10 +82,10 @@
              propertyTemplate.propertyValue = propValue;
              } */
             id propValue = [oControl valueForKey:propertyName];
-            propertyTemplate.propertyValue =  propValue;
-            //get hierachical properties
-            Utils *oUtil = [[Utils alloc]init];
             
+            propertyTemplate.propertyValue = propValue;
+            //get hierachical properties
+            Utils *oUtil = [[Utils alloc]init];            
             propertyTemplate.dictDetailsProperty = [oUtil convertIDtoNSDictionary:propValue];
             [arrProperties addObject:propertyTemplate];
         }
@@ -103,7 +103,7 @@
     NSMutableArray *arr = [[NSMutableArray alloc]init];
     EnumUtils *oUtil = [[EnumUtils alloc]init];
     
-    enumPropertiesType enu = [oUtil propertyTypeStringToEnum:propertyType];
+    enumEditedPropertiesType enu = [oUtil propertyTypeStringToEnum:propertyType];
     
     return nil;
 }
@@ -152,7 +152,7 @@ const char* getPropertyType(objc_property_t property)
         return isEdited;
     EnumUtils *oUtil = [[EnumUtils alloc]init];
     
-    enumPropertiesType enu = [oUtil propertyTypeStringToEnum:propertyType];
+    enumEditedPropertiesType enu = [oUtil propertyTypeStringToEnum:propertyType];
     switch (enu) {
         case INT:
             return TRUE;
@@ -170,12 +170,51 @@ const char* getPropertyType(objc_property_t property)
             return TRUE;
         case UNSIGNEDINT:
             return TRUE;
-        case NSLINEBREAKMODE:
-            return TRUE;
     }
     return FALSE;
 }
 
+- (BOOL) doUpdateProperty:(PropertyTemplate *)oTemplateProperty withValue:(NSString *)sProValue
+{
+    EnumUtils *oEnumUtils = [[EnumUtils alloc]init];
+    enumEditedPropertiesType enu = [oEnumUtils propertyTypeStringToEnum:oTemplateProperty.propertyType];
+    NSString *sProName = oTemplateProperty.propertyName;
+    NSString *sProType = oTemplateProperty.propertyType;
+    switch (enu) {
+        case BOOLEAN:
+        {
+            NSNumber *oNum = [NSNumber numberWithBool:[sProValue boolValue]];
+            return [self updateProperty:sProName withValue:oNum];
+        }
+        case INT:
+        {
+            NSNumber *oNum = [NSNumber numberWithInt:[sProValue intValue]];
+            return [self updateProperty:sProName withValue:oNum];
+        }
+        case FLOAT:
+        {
+            NSNumber *oNum = [NSNumber numberWithFloat:[sProValue floatValue]];
+            return [self updateProperty:sProName withValue:oNum];
+        }
+        case NSSTRING:
+        {
+            return [self updateProperty:sProName withValue:sProValue];
+        }
+        case CHAR:
+        {
+            NSNumber *oNum = [NSNumber numberWithBool:[sProValue boolValue]];
+            return [self updateProperty:sProName withValue:oNum];
+        }
+        case DOUBLE:
+        {
+            NSNumber *oNum = [NSNumber numberWithDouble:[sProValue doubleValue]];
+            return [self updateProperty:sProName withValue:oNum];
+        }
+
+        default:
+            return FALSE;
+    }
+}
 
 - (BOOL)updateProperty:(NSString *)propertyName withValue:(id)propertyValue
 {
@@ -185,7 +224,6 @@ const char* getPropertyType(objc_property_t property)
             return FALSE;
         }
         else{
-            // check if property value is enum, struct, boolean,..... and cast propertyValue to..
             [oControl setValue:propertyValue forKey:propertyName];
         }
         return TRUE;
@@ -196,7 +234,6 @@ const char* getPropertyType(objc_property_t property)
     }
     @finally {
         NSLog(@"finally");
-        return FALSE;
     }
 }
 @end

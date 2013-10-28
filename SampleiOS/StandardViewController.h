@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PropertyModel.h"
-@interface StandardViewController : UIViewController<UITabBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface StandardViewController : UIViewController<UITabBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 {
    // UIButton * btnTest;
     //PropertyModel *oProperty;

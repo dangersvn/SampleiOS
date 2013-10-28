@@ -8,15 +8,17 @@
 
 #import "EnumUtils.h"
 
-#define arrPropertiesType [NSArray arrayWithObjects: @"NONE",@"BOOLEAN",@"NSSTRING",@"CHAR",@"INT",@"FLOAT",@"DOUBLE",@"LONG", @"UNSIGNEDINT",@"NSLINEBREAKMODE", nil]
+#define arrEditedPropertiesType [NSArray arrayWithObjects: @"NONE",@"BOOLEAN",@"NSSTRING",@"CHAR",@"INT",@"FLOAT",@"DOUBLE",@"LONG", @"UNSIGNEDINT", nil]
+
+#define arrPropertiesType [NSArray arrayWithObjects: @"NONE",@"BOOLEAN",@"NSSTRING",@"CHAR",@"INT",@"FLOAT",@"DOUBLE",@"LONG", @"UNSIGNEDINT", nil]
 
 @implementation EnumUtils
 -(enumPropertiesType) propertyTypeStringToEnum:(NSString*)strVal
 {
     int retVal = 0;
-    for(int i=0; i < [arrPropertiesType count] -1; i++)
+    for(int i=0; i < [arrEditedPropertiesType count] -1; i++)
     {
-        if([(NSString*)arrPropertiesType[i] isEqualToString:[strVal uppercaseString]])
+        if([(NSString*)arrEditedPropertiesType[i] isEqualToString:[strVal uppercaseString]])
         {
             retVal = i;
             return (enumPropertiesType)retVal;

@@ -9,6 +9,27 @@
 #import "Utils.h"
 #include <objc/runtime.h> @encode(int)
 @implementation Utils
+
+
+
+- (NSDictionary *) convertIDtoNSDictionary:(id)oID
+{
+    NSLog(@"Properties Value: %@ ", oID);
+    NSMutableDictionary *propertyDetails = [NSMutableDictionary dictionaryWithCapacity:0];
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([oID class], &outCount);
+    for(i = 0; i < outCount; i++)
+    {
+        objc_property_t property = properties[i];
+        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:[NSString defaultCStringEncoding]];
+        id propertyValue = [oID valueForKey:propertyName];
+        [propertyDetails setValue:propertyValue forKey:propertyName];
+    }
+    
+    return propertyDetails;
+}
+
+/*
 - (NSString *) convertIDtoNSString:(id)oID
 {
     int a = 4;
@@ -84,27 +105,8 @@
             [sResult appendFormat:@"%@: %@ ",propertyName, propertyValue];
         }
         
-    }
-    
-    
+    }    
     return sResult;
 }
-
-- (NSDictionary *) convertIDtoNSDictionary:(id)oID
-{
-    NSLog(@"Properties Value: %@ ", oID);
-    NSMutableDictionary *propertyDetails = [NSMutableDictionary dictionaryWithCapacity:0];
-    unsigned int outCount, i;
-    objc_property_t *properties = class_copyPropertyList([oID class], &outCount);
-    for(i = 0; i < outCount; i++)
-    {
-        objc_property_t property = properties[i];
-        NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:[NSString defaultCStringEncoding]];
-        id propertyValue = [oID valueForKey:propertyName];
-        [propertyDetails setValue:propertyValue forKey:propertyName];
-    }
-    
-    return propertyDetails;    
-}
-
+*/
 @end
