@@ -29,6 +29,6 @@
 - (IBAction) tapButton:(id)sender;
 - (IBAction) tapLabelButton:(id)sender;
 
-- (IBAction) tapButtonUpdate:(id)sender;
+- (IBAction) tapButtonUpdate:(id)sender withEvent: (UIEvent *) event; 
 
 @end

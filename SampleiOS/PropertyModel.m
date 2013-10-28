@@ -82,12 +82,11 @@
              propertyTemplate.propertyValue = propValue;
              } */
             id propValue = [oControl valueForKey:propertyName];
-            propertyTemplate.propertyValue = propValue;
+            propertyTemplate.propertyValue =  propValue;
             //get hierachical properties
             Utils *oUtil = [[Utils alloc]init];
             
             propertyTemplate.dictDetailsProperty = [oUtil convertIDtoNSDictionary:propValue];
-            //NSString *arrPros = [oUtil convertIDtoNSString:propValue];
             [arrProperties addObject:propertyTemplate];
         }
     }

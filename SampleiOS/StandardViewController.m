@@ -33,7 +33,7 @@ CGPoint *pointTableView;
     [btnTest setBackgroundColor:[UIColor redColor]];
     [btnTest setTitle:@"Button Test" forState:UIControlStateNormal];
     btnTest.frame = CGRectMake(0, 0, 100, 50);
-    [btnTest addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchDown];
+    [btnTest addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
     [btnTest setTintColor:[UIColor blueColor]];
         
     [self.view addSubview:btnTest];    
@@ -49,7 +49,8 @@ CGPoint *pointTableView;
     [tabbar setDelegate:self];
     [tableview_ListProperties setDelegate:self];
     [tableview_ListProperties setDataSource:self];
-    //self.tableview_ListProperties.center = self.view.center;
+    NSArray *arrActions = [self.oControl actionsForTarget:self forControlEvent:UIControlEventTouchUpInside];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -67,12 +68,6 @@ CGPoint *pointTableView;
 {
     [lblComment setText:@"Button Clicked!"];
     
-}
-
-- (IBAction) tapButtonUpdate:(id)sender
-{
-    
-    [lblComment setText:@"Button update Clicked!"];
 }
 
 -(void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -114,12 +109,17 @@ CGPoint *pointTableView;
     static NSString *simpleTableIdentifier = @"TableViewCellCustomize";
     
     TableViewCellCustomize *cell = (TableViewCellCustomize *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    [cell.btn_Update addTarget:self action:@selector(tapButtonUpdate:) forControlEvents:UIControlEventTouchUpInside];
-    if (cell == nil)
+    
+    
+        if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TableViewCellCustomize" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    [cell.btn_Update addTarget:self action:@selector(tapButtonUpdate: withEvent:) forControlEvents:UIControlEventTouchUpInside];
+    cell.btn_Update.tag = indexPath.section;
+    
     int indexRow = indexPath.row;
     int indexSection = indexPath.section;
     
@@ -134,17 +134,21 @@ CGPoint *pointTableView;
         id anObject = [oTemplate.dictDetailsProperty objectForKey:aKey];        
         
         [cell.lbl_PropertyName setText:(NSString* )aKey];
-        [cell.txt_PropertyValue setText:[anObject isKindOfClass:[NSString class]] ? (NSString* )anObject : [aKey description]];
+        [cell.txt_PropertyValue setText:[anObject isKindOfClass:[NSString class]] ? (NSString* )anObject : [anObject description]];
         if ([oTemplate.isEdited intValue] == 0)
         {
             [cell.txt_PropertyValue setUserInteractionEnabled:FALSE];
-            [cell.btn_Update setHidden:TRUE];
-            [cell.btn_Update addTarget:self action:@selector(tapButtonUpdate:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.btn_Update setHidden:TRUE];         
+        }
+        else
+        {
+            [cell.txt_PropertyValue setUserInteractionEnabled:TRUE];
+            [cell.btn_Update setHidden:FALSE];
         }
     }
     else
     {
-        [cell.lbl_PropertyName setTextColor:[UIColor lightTextColor]];
+        //[cell.lbl_PropertyName setTextColor:[UIColor lightTextColor]];
         
         if (![oTemplate.propertyValue isKindOfClass:[NSString class]]) {
             NSString *des = [oTemplate.propertyValue description];
@@ -152,13 +156,17 @@ CGPoint *pointTableView;
         }
         else
         {
-            //NSLog(@"%@", oTemplate.propertyValue);
             cell.txt_PropertyValue.text = (NSString *)oTemplate.propertyValue;
         }
         if ([oTemplate.isEdited intValue] == 0)
         {
             [cell.txt_PropertyValue setUserInteractionEnabled:FALSE];
             [cell.btn_Update setHidden:TRUE];
+        }
+        else
+        {
+            [cell.txt_PropertyValue setUserInteractionEnabled:TRUE];
+            [cell.btn_Update setHidden:FALSE];
         }
         
     }
@@ -169,6 +177,19 @@ CGPoint *pointTableView;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [((PropertyTemplate *) [arrProperty objectAtIndex:section]) propertyName];
+}
+
+- (IBAction) tapButtonUpdate:(id)sender withEvent: (UIEvent *) event
+{
+    UIButton *btn = (UIButton *)sender;
+    UITouch * touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView: self.tableview_ListProperties];
+    NSIndexPath * indexPath = [self.tableview_ListProperties indexPathForRowAtPoint: location];
+    TableViewCellCustomize *currentCell = [self.tableview_ListProperties cellForRowAtIndexPath:indexPath];
+    NSString *sVar = currentCell.txt_PropertyValue.text;
+    
+    //oProperty updateProperty:currentCell.lbl_PropertyName.text withValue:<#(id)#>
+    
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
