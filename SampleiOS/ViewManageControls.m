@@ -9,6 +9,7 @@
 #import "ViewManageControls.h"
 #import "ListControls.h"
 #import "StandardViewController.h"
+#import "ButtonViewController.h"
 @interface ViewManageControls ()
 @end
 
@@ -106,8 +107,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    // Configure the cell...
     int row = [indexPath row];
     
     NSString *record = [arrListControl objectAtIndex:row];
@@ -117,10 +116,35 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //toStandardControl
     if ([[segue identifier] isEqualToString:@"toStandardControl"]) {
-        StandardViewController *destination = [segue destinationViewController];
-        destination.controlName = selectedControlName;
+        //ButtonViewController *destination = [segue destinationViewController];
+        //StandardViewController *destination = [segue destinationViewController];
+        //ButtonViewController *buttonViewController = [destination loadController:[ButtonViewController class]];
+        
+        //destination.controlName = selectedControlName;
+        //destination
+        //ButtonViewController *des = [segue destinationViewController];
+        //des.controlName = selectedControlName;
+        
+        //targetVC.string1 = string1;
+        
+    
+               // UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        
+        
+        		
+       /* ButtonViewController *red = (ButtonViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"StandardViewController"];*/
+        
+        //ButtonViewController *vc = [storyBoard instantiateViewControllerWithIdentifier:@"StandardViewController"];
+        
+        
+      //  [self presentViewController:vc animated:YES completion:nil];
+        //[vc setValue:@"ButtonViewController" forKey:@"customClass"];
+        
+       // ButtonViewController *targetVC = (ButtonViewController*)vc
+        //[targetVC CreateControl];
+        
+        
         
     }
 }
@@ -128,20 +152,26 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+{    
     int row = [indexPath row];
     NSString *record = [arrListControl objectAtIndex:row];
     selectedControlName = record;
     [self performSegueWithIdentifier:@"toStandardControl" sender:self];
-
-
+    
+    
+    
+    
+   /* UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    
+    ButtonViewController *viewController = [[ButtonViewController alloc]init];
+    viewController = (ButtonViewController *)[storyboard instantiateViewControllerWithIdentifier:@"StandardViewController"];
+    [self presentViewController:viewController animated:YES completion:nil];
+    */
+   
+    //ButtonViewController *buttonController = [[ButtonViewController alloc] init];
+    //[self presentViewController:buttonController animated:YES completion:nil];    
 }
+
+
 
 @end

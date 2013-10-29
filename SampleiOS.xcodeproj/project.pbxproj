@@ -214,6 +214,10 @@
 		5257AF84180F80EA000E2DDC /* PropertyTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5257AF83180F80EA000E2DDC /* PropertyTemplate.m */; };
 		526FC46D180D263300908E38 /* PropertyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 526FC46C180D263300908E38 /* PropertyModel.m */; };
 		526FC470180D2D9C00908E38 /* StandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526FC46F180D2D9B00908E38 /* StandardViewController.m */; };
+		52C31ABF181F53BA00A28342 /* LibControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C31ABE181F53BA00A28342 /* LibControl.m */; };
+		52C31AC6181F570800A28342 /* ButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C31AC5181F570800A28342 /* ButtonViewController.m */; };
+		52C31AF9181FADC600A28342 /* DemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C31AF8181FADC600A28342 /* DemoView.xib */; };
+		52C31AFB181FB71300A28342 /* ButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C31AFA181FB71300A28342 /* ButtonViewController.xib */; };
 		52E61BAE1818C6AE0067AF6C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E61BAD1818C6AE0067AF6C /* Utils.m */; };
 /* End PBXBuildFile section */
 
@@ -438,6 +442,12 @@
 		526FC46C180D263300908E38 /* PropertyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyModel.m; sourceTree = "<group>"; };
 		526FC46E180D2D9B00908E38 /* StandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardViewController.h; sourceTree = "<group>"; };
 		526FC46F180D2D9B00908E38 /* StandardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardViewController.m; sourceTree = "<group>"; };
+		52C31ABD181F53BA00A28342 /* LibControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibControl.h; sourceTree = "<group>"; };
+		52C31ABE181F53BA00A28342 /* LibControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibControl.m; sourceTree = "<group>"; };
+		52C31AC4181F570800A28342 /* ButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewController.h; sourceTree = "<group>"; };
+		52C31AC5181F570800A28342 /* ButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonViewController.m; sourceTree = "<group>"; };
+		52C31AF8181FADC600A28342 /* DemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoView.xib; sourceTree = "<group>"; };
+		52C31AFA181FB71300A28342 /* ButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonViewController.xib; sourceTree = "<group>"; };
 		52E61BAC1818C6AE0067AF6C /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		52E61BAD1818C6AE0067AF6C /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -853,6 +863,8 @@
 		3D8416B1180B63FF00D28DBE /* SampleiOS */ = {
 			isa = PBXGroup;
 			children = (
+				52C31AC0181F543800A28342 /* ViewControls */,
+				52C31ABC181F53A200A28342 /* Library */,
 				521990E7181676C700BD107C /* TableViewCellCustomize */,
 				522692541811355A00BFE4CD /* Utils */,
 				3D646CED180B1B9900D6117D /* Images */,
@@ -904,6 +916,8 @@
 				521990E8181676F900BD107C /* TableViewCellCustomize.xib */,
 				521990EA181679EB00BD107C /* TableViewCellCustomize.h */,
 				521990EB181679EB00BD107C /* TableViewCellCustomize.m */,
+				52C31AF8181FADC600A28342 /* DemoView.xib */,
+				52C31AFA181FB71300A28342 /* ButtonViewController.xib */,
 			);
 			name = TableViewCellCustomize;
 			sourceTree = "<group>";
@@ -917,6 +931,24 @@
 				52E61BAD1818C6AE0067AF6C /* Utils.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		52C31ABC181F53A200A28342 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				52C31ABD181F53BA00A28342 /* LibControl.h */,
+				52C31ABE181F53BA00A28342 /* LibControl.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		52C31AC0181F543800A28342 /* ViewControls */ = {
+			isa = PBXGroup;
+			children = (
+				52C31AC4181F570800A28342 /* ButtonViewController.h */,
+				52C31AC5181F570800A28342 /* ButtonViewController.m */,
+			);
+			name = ViewControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1162,6 +1194,8 @@
 				3D646E7C180B1BDA00D6117D /* shopcart.png in Resources */,
 				3D646E7D180B1BDA00D6117D /* upgrade.png in Resources */,
 				521990E9181676F900BD107C /* TableViewCellCustomize.xib in Resources */,
+				52C31AF9181FADC600A28342 /* DemoView.xib in Resources */,
+				52C31AFB181FB71300A28342 /* ButtonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1184,6 +1218,8 @@
 				522692571811356C00BFE4CD /* EnumUtils.m in Sources */,
 				521990EC181679EB00BD107C /* TableViewCellCustomize.m in Sources */,
 				52E61BAE1818C6AE0067AF6C /* Utils.m in Sources */,
+				52C31ABF181F53BA00A28342 /* LibControl.m in Sources */,
+				52C31AC6181F570800A28342 /* ButtonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

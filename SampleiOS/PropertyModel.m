@@ -112,9 +112,7 @@
 const char* getPropertyType(objc_property_t property)
 {
     const char *attributes = property_getAttributes(property);
-    const char *propName = property_getName(property);
-    
-    //NSLog(@"attribute: %s Name: %s",attributes,propName);
+    const char *propName = property_getName(property);    
     
     char buffer[1 + strlen(attributes)];
     strcpy(buffer, attributes);

@@ -21,8 +21,11 @@
 @property(strong, nonatomic) NSMutableArray *arrProperty;
 @property NSString *selectedPropName;
 @property NSString *selectedPropValue;
-@property(weak, nonatomic) IBOutlet UITableView *tableview_ListProperties;
-@property (weak, nonatomic) IBOutlet UITabBar *tabbar;
+@property NSString *commnent;
+@property(strong, nonatomic) IBOutlet UITableView *tableview_ListProperties;
+@property (strong, nonatomic) IBOutlet UITabBar *tabbar;
+
+- (id) loadController: (Class)classType;
 
 - (void) CreateControl;
 - (void) LoadCommnent:(NSString *)comment;
@@ -30,5 +33,5 @@
 - (IBAction) tapLabelButton:(id)sender;
 
 - (IBAction) tapButtonUpdate:(id)sender withEvent: (UIEvent *) event; 
-
+- (void)LoadProperties;
 @end

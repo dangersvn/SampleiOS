@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="StandardViewController" id="kVv-SU-fHS" customClass="StandardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7M0-Sm-trM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zeF-XA-BtD">
@@ -21,7 +21,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tabBar contentMode="scaleToFill" id="sOy-84-yuI">
-                                <rect key="frame" x="0.0" y="455" width="320" height="49"/>
+                                <rect key="frame" x="0.0" y="367" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
@@ -30,7 +30,7 @@
                                 </items>
                             </tabBar>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vz0-oP-FSX">
-                                <rect key="frame" x="0.0" y="167" width="320" height="288"/>
+                                <rect key="frame" x="0.0" y="167" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
@@ -43,43 +43,11 @@
                         <outlet property="lblComment" destination="zeF-XA-BtD" id="wiM-I9-39J"/>
                         <outlet property="tabbar" destination="sOy-84-yuI" id="8OT-Pl-vji"/>
                         <outlet property="tableview_ListProperties" destination="vz0-oP-FSX" id="3F5-L3-y7Q"/>
-                        <segue destination="Acv-2O-ZV9" kind="push" id="qvA-yl-xz7"/>
-                        <segue destination="gvb-24-UWq" kind="push" id="gxP-rX-tfM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHY-ii-HUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2076" y="-6069"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="H5t-gY-j8p">
-            <objects>
-                <viewController id="gvb-24-UWq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bp2-fm-x7I">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XAs-x3-d4v"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qPw-eO-SVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1615" y="-5637"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Apw-dv-3Ah">
-            <objects>
-                <viewController id="Acv-2O-ZV9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7zc-7L-N5J">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="xA9-ux-LQU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DUU-oS-wVt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1629" y="-6380"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pih-c4-kJc">
@@ -101,11 +69,11 @@
             <objects>
                 <viewController storyboardIdentifier="ViewManageControls" id="EZe-kW-n1c" customClass="ViewManageControls" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BEU-TG-6NI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hc5-Og-zeC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
@@ -124,9 +92,28 @@
             <point key="canvasLocation" x="-2572" y="-6069"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="StandardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StandardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tapButton:"/>
+                <relationship kind="action" name="tapButtonUpdate:withEvent:"/>
+                <relationship kind="action" name="tapLabelButton:"/>
+                <relationship kind="outlet" name="lblComment" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tabbar" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="tableview_ListProperties" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ViewManageControls" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewManageControls.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview_ListControls" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

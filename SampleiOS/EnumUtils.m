@@ -13,7 +13,7 @@
 #define arrPropertiesType [NSArray arrayWithObjects: @"NONE",@"BOOLEAN",@"NSSTRING",@"CHAR",@"INT",@"FLOAT",@"DOUBLE",@"LONG", @"UNSIGNEDINT", nil]
 
 @implementation EnumUtils
--(enumPropertiesType) propertyTypeStringToEnum:(NSString*)strVal
+-(enumEditedPropertiesType) propertyTypeStringToEnum:(NSString*)strVal
 {
     int retVal = 0;
     for(int i=0; i < [arrEditedPropertiesType count] -1; i++)
@@ -21,11 +21,11 @@
         if([(NSString*)arrEditedPropertiesType[i] isEqualToString:[strVal uppercaseString]])
         {
             retVal = i;
-            return (enumPropertiesType)retVal;
+            return (enumEditedPropertiesType)retVal;
             break;
         }
     }
-    return (enumPropertiesType)NONE;
+    return (enumEditedPropertiesType)NONE;
 }
 @end
 

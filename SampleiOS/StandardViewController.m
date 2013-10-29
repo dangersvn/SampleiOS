@@ -18,6 +18,12 @@
 @implementation StandardViewController
 @synthesize lblComment,oProperty,arrProperty,oControl,controlName,selectedPropName,selectedPropValue,tableview_ListProperties, tabbar;
 CGPoint *pointTableView;
+
+- (id) loadController:(Class)classType {
+    NSString *className = NSStringFromClass(classType);
+    UIViewController *controller = [[classType alloc] initWithNibName:className bundle:nil];
+    return controller;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,34 +34,26 @@ CGPoint *pointTableView;
     return self;
 }
 
--(void) CreateControl
-{    UIButton *btnTest = [[UIButton alloc] init];
-    UIFont *oFont = [UIFont fontWithName:@"Helvetica" size:21];
-    [btnTest setFont:oFont];
-    //[btnTest setLineBreakMode:NSLineBreakByTruncatingHead];
-    [btnTest setBackgroundColor:[UIColor redColor]];
-    [btnTest setTitle:@"Button Test" forState:UIControlStateNormal];
-    btnTest.frame = CGRectMake(0, 0, 100, 50);
-    [btnTest addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
-    [btnTest setTintColor:[UIColor blueColor]];
-    btnTest.showsTouchWhenHighlighted = YES;
-    [self.view addSubview:btnTest];    
-    self.oControl = btnTest;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = self.controlName;
     [self CreateControl];
+    [self LoadCommnent:_commnent];
+    [self LoadProperties];
+    
     [tabbar setDelegate:self];
     [tableview_ListProperties setDelegate:self];
     [tableview_ListProperties setDataSource:self];
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{   
-    self.oProperty = [[PropertyModel alloc]initWithControl:self.oControl];    
+- (void) CreateControl
+{
+}
+
+- (void) LoadProperties
+{
+    self.oProperty = [[PropertyModel alloc]initWithControl:self.oControl];
     self.arrProperty = [self.oProperty getStandardProperties];
 }
 
@@ -72,7 +70,6 @@ CGPoint *pointTableView;
 
 -(void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-   // NSLog(@"Tab selected");
     [tableview_ListProperties setHidden:FALSE];
     
     if([[item title] isEqualToString:@"Properties"])
@@ -196,8 +193,7 @@ CGPoint *pointTableView;
     BOOL isUpdated = [oProperty doUpdateProperty:oTemplate withValue:sProVar];
     if (!isUpdated) {
         NSLog(@"Update property failed!");
-    }
-    
+    }    
 }
 
 
